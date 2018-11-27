@@ -52,8 +52,8 @@ class UsuarioValidate {
                 "cpf"      => $params['cpf'],
                 "email"    => $params['email'],
                 "nome"     => $params['nome'],
-                "perfil"   => 1, // dado não tratado no formulário, usado apenas pra teste,
-                "situacao" => 1, // dado não tratado no formulário, usado apenas pra teste,
+                "perfil"   => 0, // dado não tratado no formulário, usado apenas pra teste,
+                "situacao" => 1, // usuário ativo,
                 "telefone" => ( empty($params['telefone']) )? null : $params['telefone'],// se o campo estiver vazio retorna NULL
                 "usuario"  => $params['usuario']
             ];

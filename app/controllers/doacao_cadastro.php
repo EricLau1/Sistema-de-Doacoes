@@ -10,7 +10,12 @@ $dados_entidade = array();
 
 foreach($entidades as $entidade) {
 
-    array_push($dados_entidade, [ "codigo" => $entidade['codigoEntidade'], "nome_fantasia" => $entidade['nomeFantasia'] ] );
+    if($entidade['situacao'] != 0) {
+
+        // apenas entidades que estiverem ativa
+        array_push($dados_entidade, [ "codigo" => $entidade['codigoEntidade'], "nome_fantasia" => $entidade['nomeFantasia'] ] );
+
+    }
 
 }
 

@@ -54,9 +54,15 @@ Para executar o projeto:
 
     - http://localhost:8888/home
     
+    - http://localhost:8888/user-cadastro
+
     - http://localhost:8888/login
 
-    - http://localhost:8888/admin
+    - http://localhost:8888/doacao
+
+    *caso tenha efetuado o login*
+    
+    - http://localhost:8888/admin-gui
 
     - http://localhost:8888/logout
 

@@ -172,7 +172,7 @@
 
                     <div class="form-row">
                     
-                        <div class="col-md-6">
+                        <div class="col-md-8">
 
                             <div class="form-group">
 
@@ -185,15 +185,25 @@
 
                         <div class="col-md-1"></div>
 
-                        <div class="col-md-5">
+                        <div class="col-md-3">
+                        
+                            <label for="numero"> Número </label>
+                            <input type="number" min="1" max="99999" name="numero" id="numero" class="form-control">
+
+                        </div>
+                    
+                    </div> <!-- end form-row -->
+
+                    <div class="form-row">
+
+                        <div class="col-md-12">
                         
                             <div class="form-group">
-                            
+                                
                                 <label for="bairro">Bairro</label>
                                 <input type="text" name="bairro" id="bairro" class="form-control" placeholder="Informe seu bairro" />
 
                             </div>
-                        
                         </div>
                     
                     </div> <!-- end form-row -->
@@ -228,8 +238,8 @@
                         
                             <div class="form-group">
                             
-                                <label for="estado">Estado/UF</label>
-                                <input type="text" name="estado" id="estado" class="form-control" />
+                                <label for="uf">Estado/UF</label>
+                                <input type="text" name="estado" id="uf" class="form-control" />
 
                             </div>
                             

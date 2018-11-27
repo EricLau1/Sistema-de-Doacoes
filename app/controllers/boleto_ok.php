@@ -12,10 +12,11 @@ $ok = $session->get('boleto');
 
 if($ok['status'] == 'OK') {
     
-    echo toJson((new Boleto)->getAll()); 
-    return;
+    //echo toJson((new Boleto)->getAll()); 
+    //return;
 
-    //echo toJson($ok);
+
+    echo toJson($ok);
     $session->destruct('boleto');
     return;
 }

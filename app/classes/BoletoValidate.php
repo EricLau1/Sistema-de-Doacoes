@@ -50,10 +50,10 @@ class BoletoValidate {
             "endereco"             => $params['endereco'],
             "estado"               => $params['estado'],
             "nome"                 => $params['nome'],
-            "nossoNumero"          => null, 
-            "numero"               => null, 
-            "situacao"             => 1,
-            "situacaoString"        => "em andamento",
+            "nossoNumero"          => null, // apenas para teste
+            "numero"               => $params['numero'],  // apenas para teste
+            "situacao"             => 0,
+            "situacaoString"        => "aguardando",
             "telefone"             => $params['telefone'],
             "valor"                => $params['valor'],
             "codigoEntidade"       => $params['entidade']

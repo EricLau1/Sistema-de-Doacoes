@@ -136,9 +136,9 @@
                                                 </div>
                                                 <div class="content">
                                                     <h5 class="name">
-                                                        <a href="#">@admin</a>
+                                                        <a href="#">@<?= $admin['nome'] ?></a>
                                                     </h5>
-                                                    <span class="email">admin@email.com</span>
+                                                    <span class="email"> <?= $admin['email']; ?></span>
                                                 </div>
                                             </div>
                                             <div class="account-dropdown__body">
@@ -222,7 +222,7 @@
                                     <table class="table table-borderless table-data3">
                                         <thead>
                                             <tr>
-                                                <th>Número</th>
+                                                <th>Código</th>
                                                 <th>Nome</th>
                                                 <th>Situação</th>
                                                 <th>Valor</th>
@@ -232,7 +232,7 @@
                                         <tbody>
                                             <?php foreach($boletos as $boleto): ?>
                                             <tr>
-                                                <td> <?= $boleto['numero'] ?> </td>
+                                                <td> <?= $boleto['codigoBoleto'] ?> </td>
                                                 <td> <?= $boleto['nome'] ?> </td>
 
                                                 <?php if($boleto['situacaoString'] == 'pago'): ?>
@@ -293,6 +293,18 @@
 
     <!-- Main JS-->
     <script src="assets/admin-gui/js/main.js"></script>
+
+    <script>
+    
+        var novo_boleto = document.querySelector("#novo-boleto");
+
+        novo_boleto.onclick = function() {
+
+            window.location.href = "/doacao";
+
+        }
+
+    </script>
 
 </body>
 

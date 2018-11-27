@@ -10,11 +10,14 @@ $codigo_usuario = $session->gets(['autenticado', 'codigo']);
 $user = (new Usuario())->get("codigoUsuario",  $codigo_usuario);
 
 $admin = [
-    "usuario" => $user['usuario'],
-    "email"   => $user['email'],
+    "nome"   => $user['nome'],
+    "email"  => $user['email'],
+    "perfil" => $user['perfil'],
+    "status" => $user['situacao']
 ];
 
 
+//dd($admin);
 
 unset($user);
 

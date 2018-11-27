@@ -20,7 +20,7 @@ $("#cpf").mask("000.000.000-00");
 $("#cnpj").mask("00.000.000/0000-00");
 $("#cep").mask("00.000-00");
 $("#preco").mask("999.999.990,00", { reverse: true });
-
+$("#uf").mask('SS');
 
 $("#cpf").keyup(function() {
 
