@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <!-- Required meta tags-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Autor deste template -->
     <meta name="description" content="au theme template">
     <meta name="author" content="Hau Nguyen">
     <meta name="keywords" content="au theme template">
@@ -22,12 +24,8 @@
 
     <!-- Vendor CSS-->
     <link href="assets/admin-gui/vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
-    <link href="assets/admin-gui/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
     <link href="assets/admin-gui/vendor/wow/animate.css" rel="stylesheet" media="all">
     <link href="assets/admin-gui/vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
-    <link href="assets/admin-gui/vendor/slick/slick.css" rel="stylesheet" media="all">
-    <link href="assets/admin-gui/vendor/select2/select2.min.css" rel="stylesheet" media="all">
-    <link href="assets/admin-gui/vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
 
     <!-- Main CSS-->
     <link href="assets/admin-gui/css/theme.css" rel="stylesheet" media="all">
@@ -209,10 +207,9 @@
                         <div class="row">
 
                             <div class="col-lg-12">
-                                <h2>Boletos</h2>
+                                <h4>Boletos</h4>
                             </div>
                             
-
                         </div>
 
                         <div class="row m-t-30">
@@ -275,21 +272,9 @@
     <!-- Bootstrap JS-->
     <script src="assets/admin-gui/vendor/bootstrap-4.1/popper.min.js"></script>
     <script src="assets/admin-gui/vendor/bootstrap-4.1/bootstrap.min.js"></script>
+
     <!-- Vendor JS       -->
-    <script src="assets/admin-gui/vendor/slick/slick.min.js">
-    </script>
-    <script src="assets/admin-gui/vendor/wow/wow.min.js"></script>
     <script src="assets/admin-gui/vendor/animsition/animsition.min.js"></script>
-    <script src="assets/admin-gui/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
-    </script>
-    <script src="assets/admin-gui/vendor/counter-up/jquery.waypoints.min.js"></script>
-    <script src="assets/admin-gui/vendor/counter-up/jquery.counterup.min.js">
-    </script>
-    <script src="assets/admin-gui/vendor/circle-progress/circle-progress.min.js"></script>
-    <script src="assets/admin-gui/vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
-    <script src="assets/admin-gui/vendor/chartjs/Chart.bundle.min.js"></script>
-    <script src="assets/admin-gui/vendor/select2/select2.min.js">
-    </script>
 
     <!-- Main JS-->
     <script src="assets/admin-gui/js/main.js"></script>
