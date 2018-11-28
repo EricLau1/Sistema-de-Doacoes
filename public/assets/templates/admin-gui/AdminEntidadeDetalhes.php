@@ -5,17 +5,17 @@
     <!-- Required meta tags-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
+
     <!-- Autor deste template -->
     <meta name="description" content="au theme template">
     <meta name="author" content="Hau Nguyen">
     <meta name="keywords" content="au theme template">
 
     <!-- Title Page-->
-    <title>Administrador | Entidades</title>
+    <title> Admin | Entidade Detalhes </title>
 
-     <!-- Fontfaces CSS-->
-     <link href="assets/admin-gui/css/font-face.css" rel="stylesheet" media="all">
+    <!-- Fontfaces CSS-->
+    <link href="assets/admin-gui/css/font-face.css" rel="stylesheet" media="all">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <link href="assets/admin-gui/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
 
@@ -29,7 +29,6 @@
 
     <!-- Main CSS-->
     <link href="assets/admin-gui/css/theme.css" rel="stylesheet" media="all">
-
 
 </head>
 
@@ -60,7 +59,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="/admin-entidades">
                             <i class="fas fa-hands-helping"></i>Entidades
                             </a>
                         </li>
@@ -80,13 +79,13 @@
             <div class="menu-sidebar__content js-scrollbar1">
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
-                        <li class="has-sub">
+                        <li class="has-sub active">
                             <a class="js-arrow" href="/admin-gui">
                                 <i class="fas fa-tachometer-alt"></i>Painel
                             </a>
                         </li>
-                        <li class="active">
-                            <a href="#">
+                        <li>
+                            <a href="admin-entidades">
                                 <i class="fas fa-hands-helping"></i>Entidades 
                             </a>
                         </li>
@@ -134,11 +133,12 @@
                                                     </a>
                                                 </div>
                                                 <div class="content">
-                                                <h5 class="name">
-                                                    <a href="#">@<?= $admin['nome'] ?></a>
+                                                    <h5 class="name">
+                                                        <a href="#">@<?= $admin['nome'] ?></a>
                                                     </h5>
                                                     <span class="email"> <?= $admin['email']; ?></span>
                                                 </div>
+                                            </div>
                                             <div class="account-dropdown__body">
                                                 <div class="account-dropdown__item">
                                                     <a href="#">
@@ -170,62 +170,130 @@
             <div class="main-content">
                 <div class="section__content section__content--p30">
                     <div class="container-fluid">
+                        <div class="row">
+
+                           <div class="col-lg-12">
+                           
+                           </div>
+                            
+                        </div>
+
+                        <div class="row">
+      
+                            <div class="col-lg-12">
+                                <!-- TOP CAMPAIGN-->
+                                <div class="top-campaign">
+                                    <h3 class="title-3 m-b-30"><?= $entidade['nomeFantasia'] ?></h3>
+                                    <div class="table-responsive">
+                                        <table class="table table-top-campaign">
+                                            <tbody>
+                                                <tr>
+                                                    <td class="text-dark"><em><strong>Código</strong></em></td>
+                                                    <td class='text-dark'># <?= $entidade['codigoEntidade']; ?></td>
+                                                </tr>
+                                                <tr>
+                                                    <td> <em>CNPJ</em> </td>
+                                                    <td > <?= $entidade['cnpj']; ?> </td>
+                                                </tr>
+                                                <tr>
+                                                    <td> <em>Email</em> </td>
+                                                    <td > <?= $entidade['email']; ?> </td>
+                                                </tr>
+                                                <tr>
+                                                    <td> <em>Endereço</em> </td>
+                                                    <td > <?= $entidade['endereco']; ?> </td>
+                                                </tr>
+                                                <tr>
+                                                    <td> <em>Número</em> </td>
+                                                    <td > <?= $entidade['numero']; ?> </td>
+                                                </tr>
+                                                <tr>
+                                                    <td> <em>Bairro</em> </td>
+                                                    <td > <?= $entidade['bairro']; ?> </td>
+                                                </tr>
+                                                <tr>
+                                                    <td> <em>CNPJ</em> </td>
+                                                    <td > <?= $entidade['cnpj']; ?> </td>
+                                                </tr>
+                                                
+                                                <?php if(!empty($entidade['celular'])): ?>
+                                                <tr>
+                                                    <td> <em>Celular</em> </td>
+                                                    <td > <?= $entidade['celular']; ?> </td>
+                                                </tr>
+
+                                                <?php else: ?>
+
+                                                <tr>
+                                                    <td> <em>Celular</em> </td>
+                                                    <td class="text-dark"> <em>não possui</em> </td>
+                                                </tr>
+
+                                                <?php endif; ?>
+
+                                                <?php if(!empty($entidade['telefone'])): ?>
+                                                <tr>
+                                                    <td> <em>Telefone</em> </td>
+                                                    <td > <?= $entidade['telefone']; ?> </td>
+                                                </tr>
+
+                                                <?php else: ?>
+
+                                                <tr>
+                                                    <td> <em>Telefone</em> </td>
+                                                    <td class="text-dark"> <em>não possui</em> </td>
+                                                </tr>
+
+                                                <?php endif; ?>
+
+                                                <?php if($entidade['situacao'] != 0): ?>
+                                                <tr>
+                                                    <td> <em>Situação</em> </td>
+                                                    <td class='text-success'> <strong> ativo </strong> </td>
+                                                </tr>
+                                                <?php else: ?>
+                                                <tr>
+                                                    <td> <em>Situação</em> </td>
+                                                    <td class="text-danger"> <em>inativo</em> </td>
+                                                </tr>
+                                                <?php endif; ?>
+                                                <tr>
+                                                    <td class="text-dark"> <em><strong>Valor do Boleto</strong></em></td>
+                                                    <td> R$ <?= number_format($entidade['valorBoleto'], 2); ?> </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-danger">Notificar via email</td>
+                                                    <td>
+                                                        <button class="role admin"> Email </button>
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td class="text-primary">Editar informações</td>
+                                                    <td>
+                                                        <button class="role user"> Editar </button>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <!--  END TOP CAMPAIGN-->
+                            </div>
+                        </div>
 
                         <div class="row">
 
                             <div class="col-lg-12">
+  
+                            </div>
                             
-                                <?= $session->message(); ?>
-
-                            </div>
-                        
                         </div>
 
-                        <div class="row">
-
-                            <div class="col-md-12 text-right">
-                                <button class="role member" id="novo-boleto" > Fazer doação </button>
-
-                                <button class="role user" id="nova-entidade" > Nova entidade </button>                                
-                            </div>
-                        </div>
-           
                         <div class="row m-t-30">
                             <div class="col-md-12">
                                 <!-- DATA TABLE-->
-                                <div class="table-responsive m-b-40">
-                                    <table class="table table-borderless table-data3">
-                                        <thead>
-                                            <tr>
-                                                <th>Entidade</th>
-                                                <th>Situação</th>
-                                                <th>Doações</th>
-                                                <th>Detalhes</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <?php foreach($doacoes as $doacao): ?>
-                                            <tr>
-                                                <td><?= $doacao['entidade']; ?></td>
-                                                
-                                                <?php if($doacao['situacao'] != 0): ?>
-
-                                                    <td class='process'>ativo</td>
-
-                                                <?php else: ?>
-
-                                                    <td class="denied">não ativo</td>
-
-                                                <?php endif; ?>
-                                                
-                                                <td><?= $doacao['doacoes']; ?></td>
-
-                                                <td><a href="/admin-entidade-detalhes?codigo=<?= $doacao['codigo']; ?>" class="btn btn-link"> ver mais </a></td>
-                                            </tr>
-                                            <?php endforeach;?>
-                                        </tbody>
-                                    </table>
-                                </div>
+                                
                                 <!-- END DATA TABLE-->
                             </div>
                         </div>
@@ -250,14 +318,16 @@
     <script src="assets/admin-gui/vendor/bootstrap-4.1/bootstrap.min.js"></script>
 
     <!-- Vendor JS       -->
+    <script src="assets/admin-gui/vendor/slick/slick.min.js"></script>
+    <script src="assets/admin-gui/vendor/wow/wow.min.js"></script>
+
+
+    <!-- Vendor JS       -->
     <script src="assets/admin-gui/vendor/animsition/animsition.min.js"></script>
     <script src="assets/admin-gui/vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
 
     <!-- Main JS-->
     <script src="assets/admin-gui/js/main.js"></script>
-
-    <script src="assets/js/button.novoBoleto.js"></script>
-    <script src="assets/js/button.novaEntidade.js"></script>
 
 </body>
 

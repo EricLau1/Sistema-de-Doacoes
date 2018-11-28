@@ -172,7 +172,7 @@
 
                     <div class="form-row">
                     
-                        <div class="col-md-8">
+                        <div class="col-md-12">
 
                             <div class="form-group">
 
@@ -182,16 +182,7 @@
                             </div>
                         
                         </div>
-
-                        <div class="col-md-1"></div>
-
-                        <div class="col-md-3">
-                        
-                            <label for="numero"> Número </label>
-                            <input type="number" min="1" max="99999" name="numero" id="numero" class="form-control">
-
-                        </div>
-                    
+                 
                     </div> <!-- end form-row -->
 
                     <div class="form-row">

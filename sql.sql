@@ -1,10 +1,8 @@
-drop database sistemadoacoes;
-
-use sistemadoacoes;
-
 create database sistemadoacoes
 default character set utf8
 default collate utf8_general_ci;
+
+use sistemadoacoes;
 
 /* 
   Eu Alterei o campo de senha do Usuario para varchar(60) 

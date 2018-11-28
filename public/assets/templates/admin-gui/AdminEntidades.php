@@ -182,11 +182,11 @@
                         </div>
 
                         <div class="row">
-
+      
                             <div class="col-md-12 text-right">
-                                <button class="role member" id="novo-boleto" > Fazer doação </button>
 
-                                <button class="role user" id="nova-entidade" > Nova entidade </button>                                
+                                <span class="role user" id="new-entity" > Nova entidade </span>
+                                
                             </div>
                         </div>
            
@@ -251,13 +251,23 @@
 
     <!-- Vendor JS       -->
     <script src="assets/admin-gui/vendor/animsition/animsition.min.js"></script>
-    <script src="assets/admin-gui/vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
 
     <!-- Main JS-->
     <script src="assets/admin-gui/js/main.js"></script>
 
-    <script src="assets/js/button.novoBoleto.js"></script>
-    <script src="assets/js/button.novaEntidade.js"></script>
+    <script >
+    
+        var new_entity = document.querySelector("#new-entity");
+
+        new_entity.style.cursor = 'pointer';
+
+        new_entity.onclick = function () {
+
+            window.location.href="/admin-entidade-cadastro";
+
+        }
+
+    </script>
 
 </body>
 

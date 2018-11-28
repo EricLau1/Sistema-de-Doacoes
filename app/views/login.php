@@ -13,6 +13,8 @@
     <!-- linkar os arquivos de css na pasta assets -->
     <link rel="stylesheet" href="assets/css/login.css" />
 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
   </head>
   <body class="text-center bg-white">
 
@@ -38,7 +40,7 @@
       
       <button class="btn btn-lg btn-primary btn-block" type="submit">Iniciar sessão</button>
       
-      <a href="/home" class="btn btn-outline-dark btn-block btn-lg" >Home</a>
+      <a href="/home" class="btn btn-warning btn-block" > Ir para <i class="fas fa-home"> </i></a>
       
       <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
     

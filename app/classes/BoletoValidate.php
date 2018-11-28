@@ -50,8 +50,8 @@ class BoletoValidate {
             "endereco"             => $params['endereco'],
             "estado"               => $params['estado'],
             "nome"                 => $params['nome'],
-            "nossoNumero"          => null, // apenas para teste
-            "numero"               => $params['numero'],  // apenas para teste
+            "nossoNumero"          => null,                 // valor utilizado apenas para teste
+            "numero"               => rand(10000, 99999),  // valor utilizado apenas para teste
             "situacao"             => 0,
             "situacaoString"        => "aguardando",
             "telefone"             => $params['telefone'],

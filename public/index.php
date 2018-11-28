@@ -48,7 +48,11 @@ $rotas = [
 
     "/admin-entidade-cadastro" => "controllers/admin_entidade_cadastro",
 
-    "/admin-entidade-create" => "controllers/admin_entidade_create"
+    "/admin-entidade-create" => "controllers/admin_entidade_create",
+
+    "/admin-boleto-detalhes" => "controllers/admin_boleto_detalhes",
+
+    "/admin-entidade-detalhes" => "controllers/admin_entidade_detalhes"
 ];
 
 try {

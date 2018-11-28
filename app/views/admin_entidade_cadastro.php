@@ -136,9 +136,9 @@
                                                 </div>
                                                 <div class="content">
                                                     <h5 class="name">
-                                                        <a href="#">@admin</a>
+                                                        <a href="#"><?= $admin['nome'] ?></a>
                                                     </h5>
-                                                    <span class="email">admin@email.com</span>
+                                                    <span class="email"><?= $admin['email']; ?></span>
                                                 </div>
                                             </div>
                                             <div class="account-dropdown__body">
@@ -304,6 +304,7 @@
 
     <!-- Vendor JS       -->
     <script src="assets/admin-gui/vendor/animsition/animsition.min.js"></script>
+    <script src="assets/admin-gui/vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
 
     <!-- Main JS-->
     <script src="assets/admin-gui/js/main.js"></script>

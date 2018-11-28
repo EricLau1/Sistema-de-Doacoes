@@ -39,11 +39,6 @@
             minlength: 5,
             maxlength: 100
         },
-        numero : {
-            required: true,
-            min: 1,
-            max: 99999
-        },
         bairro : {
             required: true,
             minlength: 5,
@@ -103,11 +98,6 @@
             required: flash("Este campo é obrigatório", ALERT_MESSAGE),
             minlength: flash("Mínimo 5 caracteres", ALERT_MESSAGE),
             maxlength: flash("Máximo 100 caracteres", ALERT_MESSAGE)
-        },
-        numero : {
-            required: flash("Este campo é obrigatório", ALERT_MESSAGE),
-            min: flash("Número mínimo 1", ALERT_MESSAGE),
-            max: flash("Número máximo 99999", ALERT_MESSAGE)
         },
         bairro : {
             required: flash("Este campo é obrigatório.", ALERT_MESSAGE),

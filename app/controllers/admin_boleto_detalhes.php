@@ -21,4 +21,26 @@ $admin = [
 
 unset($user);
 
-require $view->renderizar("admin_entidade_cadastro");
+use app\models\Boleto;
+use app\models\Entidade;
+
+$boleto = (new Boleto)->get('codigoBoleto', $_GET['codigo']);
+
+
+if($boleto) {
+
+    $entidade = (new Entidade)->get('codigoEntidade', $boleto['codigoEntidade']);
+
+/*
+    echo toJson([
+        "boleto" => $boleto,
+        "entidade" => $entidade
+    ]);
+    return;
+*/
+    
+    require $view->renderizar("admin_boleto_detalhes");
+    return;
+}
+
+echo "Boleto não existe!";

@@ -5,17 +5,17 @@
     <!-- Required meta tags-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
+
     <!-- Autor deste template -->
     <meta name="description" content="au theme template">
     <meta name="author" content="Hau Nguyen">
     <meta name="keywords" content="au theme template">
 
     <!-- Title Page-->
-    <title>Administrador | Entidades</title>
+    <title> Admin | Boleto Detalhes </title>
 
-     <!-- Fontfaces CSS-->
-     <link href="assets/admin-gui/css/font-face.css" rel="stylesheet" media="all">
+    <!-- Fontfaces CSS-->
+    <link href="assets/admin-gui/css/font-face.css" rel="stylesheet" media="all">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <link href="assets/admin-gui/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
 
@@ -29,7 +29,6 @@
 
     <!-- Main CSS-->
     <link href="assets/admin-gui/css/theme.css" rel="stylesheet" media="all">
-
 
 </head>
 
@@ -60,7 +59,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="/admin-entidades">
                             <i class="fas fa-hands-helping"></i>Entidades
                             </a>
                         </li>
@@ -80,13 +79,13 @@
             <div class="menu-sidebar__content js-scrollbar1">
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
-                        <li class="has-sub">
+                        <li class="has-sub active">
                             <a class="js-arrow" href="/admin-gui">
                                 <i class="fas fa-tachometer-alt"></i>Painel
                             </a>
                         </li>
-                        <li class="active">
-                            <a href="#">
+                        <li>
+                            <a href="admin-entidades">
                                 <i class="fas fa-hands-helping"></i>Entidades 
                             </a>
                         </li>
@@ -134,11 +133,12 @@
                                                     </a>
                                                 </div>
                                                 <div class="content">
-                                                <h5 class="name">
-                                                    <a href="#">@<?= $admin['nome'] ?></a>
+                                                    <h5 class="name">
+                                                        <a href="#">@<?= $admin['nome'] ?></a>
                                                     </h5>
                                                     <span class="email"> <?= $admin['email']; ?></span>
                                                 </div>
+                                            </div>
                                             <div class="account-dropdown__body">
                                                 <div class="account-dropdown__item">
                                                     <a href="#">
@@ -170,62 +170,124 @@
             <div class="main-content">
                 <div class="section__content section__content--p30">
                     <div class="container-fluid">
+                        <div class="row">
+
+                           <div class="col-lg-12">
+                           
+                           </div>
+                            
+                        </div>
+
+                        <div class="row">
+      
+                            <div class="col-lg-12">
+                                <!-- TOP CAMPAIGN-->
+                                <div class="top-campaign">
+                                    <h3 class="title-3 m-b-30">Boleto # <?= $boleto['codigoBoleto'] ?></h3>
+                                    <div class="table-responsive">
+                                        <table class="table table-top-campaign">
+                                            <tbody>
+                                                <tr>
+                                                    <td><em>Vencimento</em></td>
+                                                    <td class='text-danger'><?= (new DateTime($boleto['dataVencimento']))->format("d M Y"); ?></td>
+                                                </tr>
+                                                <tr>
+                                                    <td> <em>Benificiário</em> </td>
+                                                    <td class="text-success"> 
+                                                        <a href="/admin-entidade-detalhes?codigo=<?= $entidade['codigoEntidade']; ?>">
+                                                            <?= $entidade['nomeFantasia']; ?>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                        
+                                                <tr>
+                                                    <td > <em> Data da emissão </em> </td>
+                                                    <td class="text-dark"> <?= (new DateTime($boleto['dataEmissao']))->format("d M Y"); ?> </td>
+                                                </tr>
+                                                <tr>
+                                                    <td><em>Nº do documento</em></td>
+                                                    <td class="text-dark"><?= $boleto['numero']; ?></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><em>Data do Pagamento</em></td>
+                                                    <td class="text-dark"><?= (new DateTime($boleto['dataPagamento']))->format("d M Y"); ?></td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-dark"><em><strong>Valor</strong></em></td>
+                                                    <td class="text-success"> R$ <?= number_format($boleto['valor'], 2); ?></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><em><strong>Pagador</strong></em></td>
+                                                    <td class="text-dark"><?= $boleto['nome']; ?></td>
+                                                </tr>
+
+                                                <?php if(!empty($boleto['cnpj'])): ?>
+                                                <tr>
+                                                    <td><em>CNPJ</em></td>
+                                                    <td class="text-dark"><?= $boleto['cnpj']; ?></td>
+                                                </tr>
+                                                <?php endif; ?>
+
+                                                <?php if(!empty($boleto['cpf'])): ?>
+                                                <tr>
+                                                    <td><em>CPF</em></td>
+                                                    <td class="text-dark"><?= $boleto['cpf']; ?></td>
+                                                </tr>
+                                                <?php endif; ?>
+
+                                                <tr>
+                                                    <td><em>Endereço</em></td>
+                                                    <td class="text-dark"><?= $boleto['endereco']; ?></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><em>CEP</em></td>
+                                                    <td class="text-dark"><?= $boleto['cep']; ?></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><em>Bairro</em></td>
+                                                    <td class="text-dark"><?= $boleto['bairro']; ?></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><em>Cidade</em></td>
+                                                    <td class="text-dark"><?= $boleto['cidade']; ?></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><em>Estado</em></td>
+                                                    <td class="text-dark"><?= $boleto['estado']; ?></td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td class="text-danger">Notificar via email</td>
+                                                    <td>
+                                                        <button class="role admin"> Email </button>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-dark">Dar baixa</td>
+                                                    <td>
+                                                        <button class="role member"  > Baixa </button>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <!--  END TOP CAMPAIGN-->
+                            </div>
+                        </div>
 
                         <div class="row">
 
                             <div class="col-lg-12">
+  
+                            </div>
                             
-                                <?= $session->message(); ?>
-
-                            </div>
-                        
                         </div>
 
-                        <div class="row">
-
-                            <div class="col-md-12 text-right">
-                                <button class="role member" id="novo-boleto" > Fazer doação </button>
-
-                                <button class="role user" id="nova-entidade" > Nova entidade </button>                                
-                            </div>
-                        </div>
-           
                         <div class="row m-t-30">
                             <div class="col-md-12">
                                 <!-- DATA TABLE-->
-                                <div class="table-responsive m-b-40">
-                                    <table class="table table-borderless table-data3">
-                                        <thead>
-                                            <tr>
-                                                <th>Entidade</th>
-                                                <th>Situação</th>
-                                                <th>Doações</th>
-                                                <th>Detalhes</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <?php foreach($doacoes as $doacao): ?>
-                                            <tr>
-                                                <td><?= $doacao['entidade']; ?></td>
-                                                
-                                                <?php if($doacao['situacao'] != 0): ?>
-
-                                                    <td class='process'>ativo</td>
-
-                                                <?php else: ?>
-
-                                                    <td class="denied">não ativo</td>
-
-                                                <?php endif; ?>
-                                                
-                                                <td><?= $doacao['doacoes']; ?></td>
-
-                                                <td><a href="/admin-entidade-detalhes?codigo=<?= $doacao['codigo']; ?>" class="btn btn-link"> ver mais </a></td>
-                                            </tr>
-                                            <?php endforeach;?>
-                                        </tbody>
-                                    </table>
-                                </div>
+                                
                                 <!-- END DATA TABLE-->
                             </div>
                         </div>
@@ -249,15 +311,15 @@
     <script src="assets/admin-gui/vendor/bootstrap-4.1/popper.min.js"></script>
     <script src="assets/admin-gui/vendor/bootstrap-4.1/bootstrap.min.js"></script>
 
+
     <!-- Vendor JS       -->
     <script src="assets/admin-gui/vendor/animsition/animsition.min.js"></script>
+
     <script src="assets/admin-gui/vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
 
+     
     <!-- Main JS-->
     <script src="assets/admin-gui/js/main.js"></script>
-
-    <script src="assets/js/button.novoBoleto.js"></script>
-    <script src="assets/js/button.novaEntidade.js"></script>
 
 </body>
 

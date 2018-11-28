@@ -21,4 +21,17 @@ $admin = [
 
 unset($user);
 
-require $view->renderizar("admin_entidade_cadastro");
+use app\models\Entidade;
+
+$entidade = (new Entidade)->get('codigoEntidade', $_GET['codigo']);
+
+
+if($entidade) {
+
+    //echo toJson($entidade); return;
+    
+    require $view->renderizar("admin_entidade_detalhes");
+    return;
+}
+
+echo "Entidade não existe!";
