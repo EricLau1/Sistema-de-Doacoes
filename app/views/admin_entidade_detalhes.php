@@ -272,7 +272,7 @@
                                                 <?php endif; ?>
                                                 <tr>
                                                     <td class="text-dark"> <em><strong>Valor do Boleto</strong></em></td>
-                                                    <td> R$ <?= number_format($entidade['valorBoleto'], 2); ?> </td>
+                                                    <td class="text-success">  <strong><?= number_format($entidade['valorBoleto'], 2, ",", "."); ?> </strong> R$  </td>
                                                 </tr>
                                                 <tr>
                                                     <td class="text-danger">Notificar via email</td>

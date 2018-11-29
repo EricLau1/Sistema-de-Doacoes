@@ -37,6 +37,8 @@ $rotas = [
     // após validar os dados do boleto, manda para a página de impressao
     "/boleto-ok" => "controllers/boleto_ok",
 
+    "/boleto" => "controllers/boleto",
+
     // página para testes
     "/test" => "controllers/test",
 

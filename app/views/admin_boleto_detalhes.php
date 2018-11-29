@@ -218,7 +218,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td class="text-dark"><em><strong>Valor</strong></em></td>
-                                                    <td class="text-success"> R$ <?= number_format($boleto['valor'], 2); ?></td>
+                                                    <td class="text-success"> <strong> <?= number_format($boleto['valor'], 2, ",", "."); ?></strong> R$ </td>
                                                 </tr>
                                                 <tr>
                                                     <td><em><strong>Pagador</strong></em></td>

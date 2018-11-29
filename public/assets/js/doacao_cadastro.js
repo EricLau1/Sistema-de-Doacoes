@@ -8,7 +8,7 @@
         nome : {
             required: true,
             minlength: 4,
-            maxlength: 40
+            maxlength: 60
         },
         email : {
             required: true, 
@@ -69,7 +69,7 @@
         nome : {
             required: flash("Este campo é obrigatório.", ALERT_MESSAGE),
             minlength: flash("Mínimo 4 caracteres", ALERT_MESSAGE),
-            maxlength: flash("Máximo 40 caracteres", ALERT_MESSAGE)
+            maxlength: flash("Máximo 60 caracteres", ALERT_MESSAGE)
         },
         email : {
             required: flash("Este campo é obrigatório", ALERT_MESSAGE),

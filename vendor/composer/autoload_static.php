@@ -11,6 +11,10 @@ class ComposerStaticInitf076f51ed733dff01ee36c28e104d4cd
         array (
             'app\\' => 4,
         ),
+        'O' => 
+        array (
+            'OpenBoleto\\' => 11,
+        ),
     );
 
     public static $prefixDirsPsr4 = array (
@@ -18,14 +22,41 @@ class ComposerStaticInitf076f51ed733dff01ee36c28e104d4cd
         array (
             0 => __DIR__ . '/../..' . '/app',
         ),
+        'OpenBoleto\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/OpenBoleto',
+        ),
     );
 
     public static $classMap = array (
+        'OpenBoleto\\Agente' => __DIR__ . '/../..' . '/OpenBoleto/src/Agente.php',
+        'OpenBoleto\\Banco\\BancoDoBrasil' => __DIR__ . '/../..' . '/OpenBoleto/src/Banco/BancoDoBrasil.php',
+        'OpenBoleto\\Banco\\Bradesco' => __DIR__ . '/../..' . '/OpenBoleto/src/Banco/Bradesco.php',
+        'OpenBoleto\\Banco\\Brb' => __DIR__ . '/../..' . '/OpenBoleto/src/Banco/Brb.php',
+        'OpenBoleto\\Banco\\Caixa' => __DIR__ . '/../..' . '/OpenBoleto/src/Banco/Caixa.php',
+        'OpenBoleto\\Banco\\CaixaSICOB' => __DIR__ . '/../..' . '/OpenBoleto/src/Banco/CaixaSICOB.php',
+        'OpenBoleto\\Banco\\Cecred' => __DIR__ . '/../..' . '/OpenBoleto/src/Banco/Cecred.php',
+        'OpenBoleto\\Banco\\Itau' => __DIR__ . '/../..' . '/OpenBoleto/src/Banco/Itau.php',
+        'OpenBoleto\\Banco\\Santander' => __DIR__ . '/../..' . '/OpenBoleto/src/Banco/Santander.php',
+        'OpenBoleto\\Banco\\Sicoob' => __DIR__ . '/../..' . '/OpenBoleto/src/Banco/Sicoob.php',
+        'OpenBoleto\\Banco\\Sicredi' => __DIR__ . '/../..' . '/OpenBoleto/src/Banco/Sicredi.php',
+        'OpenBoleto\\Banco\\Unicred' => __DIR__ . '/../..' . '/OpenBoleto/src/Banco/Unicred.php',
+        'OpenBoleto\\Banco\\Uniprime' => __DIR__ . '/../..' . '/OpenBoleto/src/Banco/Uniprime.php',
+        'OpenBoleto\\BoletoAbstract' => __DIR__ . '/../..' . '/OpenBoleto/src/BoletoAbstract.php',
+        'OpenBoleto\\BoletoFactory' => __DIR__ . '/../..' . '/OpenBoleto/src/BoletoFactory.php',
+        'OpenBoleto\\Exception' => __DIR__ . '/../..' . '/OpenBoleto/src/Exception.php',
+        'app\\classes\\BoletoValidate' => __DIR__ . '/../..' . '/app/classes/BoletoValidate.php',
         'app\\classes\\Database' => __DIR__ . '/../..' . '/app/classes/Database.php',
+        'app\\classes\\EntidadeValidate' => __DIR__ . '/../..' . '/app/classes/EntidadeValidate.php',
         'app\\classes\\Login' => __DIR__ . '/../..' . '/app/classes/Login.php',
+        'app\\classes\\ModelsUpdate' => __DIR__ . '/../..' . '/app/classes/ModelsUpdate.php',
+        'app\\classes\\Moeda' => __DIR__ . '/../..' . '/app/classes/Moeda.php',
         'app\\classes\\Password' => __DIR__ . '/../..' . '/app/classes/Password.php',
         'app\\classes\\Router' => __DIR__ . '/../..' . '/app/classes/Router.php',
+        'app\\classes\\Unique' => __DIR__ . '/../..' . '/app/classes/Unique.php',
         'app\\classes\\Uri' => __DIR__ . '/../..' . '/app/classes/Uri.php',
+        'app\\classes\\UsuarioValidate' => __DIR__ . '/../..' . '/app/classes/UsuarioValidate.php',
+        'app\\classes\\Validate' => __DIR__ . '/../..' . '/app/classes/Validate.php',
         'app\\classes\\View' => __DIR__ . '/../..' . '/app/classes/View.php',
         'app\\filtros\\Decimal' => __DIR__ . '/../..' . '/app/filtros/Decimal.php',
         'app\\filtros\\Filter' => __DIR__ . '/../..' . '/app/filtros/Filter.php',
@@ -36,6 +67,7 @@ class ComposerStaticInitf076f51ed733dff01ee36c28e104d4cd
         'app\\models\\Entidade' => __DIR__ . '/../..' . '/app/models/Entidade.php',
         'app\\models\\Estado' => __DIR__ . '/../..' . '/app/models/Estado.php',
         'app\\models\\Model' => __DIR__ . '/../..' . '/app/models/Model.php',
+        'app\\models\\QueryBuilder' => __DIR__ . '/../..' . '/app/models/QueryBuilder.php',
         'app\\models\\Usuario' => __DIR__ . '/../..' . '/app/models/Usuario.php',
         'app\\sessions\\Session' => __DIR__ . '/../..' . '/app/sessions/Session.php',
     );

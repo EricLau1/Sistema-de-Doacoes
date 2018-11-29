@@ -7,4 +7,5 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'app\\' => array($baseDir . '/app'),
+    'OpenBoleto\\' => array($baseDir . '/OpenBoleto'),
 );

@@ -183,18 +183,19 @@
                                         <table class="table table-top-campaign">
                                             <tbody>
                                                 <tr>
-                                                    <td > Total pago</td>
-                                                    <td class="text-success"> R$ <?= $totalPago; ?></td>
+                                                    <td class="text-dark"> <strong> Total pago </strong></td>
+                                                    <td > <span class="role user">  <?= $totalPago; ?> R$ </span> </td>
                                                 </tr>
                                                 <tr>
-                                                    <td >Não pago</td>
-                                                    <td class="text-danger">R$ <?= $naoPago; ?></td>
+                                                    <td class="text-dark"> <strong> Não pago </strong> </td>
+                                                    <td > <span class="role admin"> <?= $naoPago; ?> R$ </span> </td>
                                                 </tr>
                                                 <tr>
-                                                    <td></td>
                                                     <td>
+                                                        <br>
                                                         <button class="role member" id="novo-boleto" > Fazer doação </button>
                                                     </td>
+                                                    <td> </td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -242,7 +243,7 @@
 
                                                 <?php endif; ?>
 
-                                                <td>R$ <?= $boleto['valor'] ?> </td>
+                                                <td> <strong> <?= $boleto['valor'] ?> </strong> R$ </td>
                                                 
                                                 <td>
                                                     <a href="/admin-boleto-detalhes?codigo=<?= $boleto['codigoBoleto']; ?>" class='btn btn-link'> 
