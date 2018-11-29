@@ -5,14 +5,14 @@
     <!-- Required meta tags-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
+
     <!-- Autor deste template -->
     <meta name="description" content="au theme template">
     <meta name="author" content="Hau Nguyen">
     <meta name="keywords" content="au theme template">
 
     <!-- Title Page-->
-    <title>Administrador | Entidades</title>
+    <title> Entidade | Editar </title>
 
      <!-- Fontfaces CSS-->
      <link href="assets/admin-gui/css/font-face.css" rel="stylesheet" media="all">
@@ -30,6 +30,7 @@
     <!-- Main CSS-->
     <link href="assets/admin-gui/css/theme.css" rel="stylesheet" media="all">
 
+    <link rel="stylesheet" href="assets/css/style.css">
 
 </head>
 
@@ -60,7 +61,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="/admin-entidades">
                             <i class="fas fa-hands-helping"></i>Entidades
                             </a>
                         </li>
@@ -86,7 +87,7 @@
                             </a>
                         </li>
                         <li class="active">
-                            <a href="#">
+                            <a href="/admin-entidades">
                                 <i class="fas fa-hands-helping"></i>Entidades 
                             </a>
                         </li>
@@ -130,15 +131,16 @@
                                             <div class="info clearfix">
                                                 <div class="image">
                                                     <a href="#">
-                                                        <img src="assets/images/admin-avatar.svg" alt="administrador" />
+                                                        <img src="assets/images/admin-avatar.svg" alt="John Doe" />
                                                     </a>
                                                 </div>
                                                 <div class="content">
-                                                <h5 class="name">
-                                                    <a href="#">@<?= $admin['nome'] ?></a>
+                                                    <h5 class="name">
+                                                        <a href="#"><?= $admin['nome'] ?></a>
                                                     </h5>
-                                                    <span class="email"> <?= $admin['email']; ?></span>
+                                                    <span class="email"><?= $admin['email']; ?></span>
                                                 </div>
+                                            </div>
                                             <div class="account-dropdown__body">
                                                 <div class="account-dropdown__item">
                                                     <a href="#">
@@ -172,63 +174,129 @@
                     <div class="container-fluid">
 
                         <div class="row">
-
-                            <div class="col-lg-12">
-                            
-                                <?= $session->message(); ?>
-
-                            </div>
                         
+                            <div class="col-lg-12 text-right">
+                                <a href="/admin-entidade-detalhes?codigo=<?= $entidade['codigoEntidade']; ?>" class="role user text-light"> Voltar </a>
+                            </div>
                         </div>
+
+                        <br />
+                        
+                        <div class="row">
+                            <div class="col-lg-12">
+
+                                <?= $session->message(); ?>  
+                                
+                            </div>
+                        </div> <!-- end row -->
 
                         <div class="row">
+      
+                            <div class="col-lg-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <strong>Atualizar Entidade</strong>
+                                        <small> formulário </small>
+                                    </div>
+                                    <form id="form-entidade-create" class="card-body card-block" action="admin-entidade-update" method="POST">
+                                        
+                                        <div class="form-group">
+                                            <label for="nome" class=" form-control-label">Nome </label>
+                                            <input type="text" name="nome" id="nome" placeholder="Informe o nome" class="form-control"
+                                                value="<?= $entidade['nomeFantasia'] ?>" />
+                                        </div>
 
-                            <div class="col-md-12 text-right">
-                                <button class="role member" id="novo-boleto" > Fazer doação </button>
+                                        <div class="form-group">
+                                            <label for="email" class=" form-control-label">Email</label>
+                                            <input type="text" name="email" id="email" placeholder="Informe o email" class="form-control"
+                                            value="<?= $entidade['email'] ?>" />
+                                        </div>
 
-                                <button class="role user" id="nova-entidade" > Nova entidade </button>                                
-                            </div>
-                        </div>
-           
-                        <div class="row m-t-30">
-                            <div class="col-md-12">
-                                <!-- DATA TABLE-->
-                                <div class="table-responsive m-b-40">
-                                    <table class="table table-borderless table-data3">
-                                        <thead>
-                                            <tr>
-                                                <th>Entidade</th>
-                                                <th>Situação</th>
-                                                <th>Doações</th>
-                                                <th>Detalhes</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <?php foreach($doacoes as $doacao): ?>
-                                            <tr>
-                                                <td><?= $doacao['entidade']; ?></td>
-                                                
-                                                <?php if($doacao['situacao'] != 0): ?>
+                                        <div class="form-group">
+                                            <label for="cnpj" class=" form-control-label">CNPJ</label>
+                                            <input type="text" name="cnpj" id="cnpj" placeholder="informe seu CNPJ" class="form-control"
+                                            value="<?= $entidade['cnpj'] ?>" />
+                                        </div>
 
-                                                    <td class='process'>ativo</td>
+                                        <div class="row form-group">
+                                            <div class="col-6">
+                                                <div class="form-group">
+                                                    <label for="telefone" class=" form-control-label">Telefone</label>
+                                                    <input type="text" name="telefone" id="telefone" placeholder="Informe seu telefone" class="form-control"
+                                                    value="<?= $entidade['telefone'] ?>" />
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="form-group">
+                                                    <label for="celular" class=" form-control-label">Celular</label>
+                                                    <input type="text" name="celular" id="celular" placeholder="Informe seu celular" class="form-control"
+                                                    value="<?= $entidade['celular'] ?>" />
+                                                </div>
+                                            </div>
+                                        </div>
 
-                                                <?php else: ?>
+                                        <div class="row form-group">
+                                            <div class="col-8">
+                                                <div class="form-group">
+                                                    <label for="endereco" class=" form-control-label">Endereço</label>
+                                                    <input type="text" name="endereco" id="endereco" placeholder="Informe o endereço" class="form-control"
+                                                    value="<?= $entidade['endereco'] ?>" />
+                                                </div>
+                                            </div>
+                                            <div class="col-4">
+                                                <div class="form-group">
+                                                    <label for="numero" class=" form-control-label">Número</label>
+                                                    <input type="number" min="1" name="numero" id="numero" placeholder="Informe o número" class="form-control"
+                                                    value="<?= $entidade['numero'] ?>" />
+                                                </div>
+                                            </div>
+                                        </div>
 
-                                                    <td class="denied">não ativo</td>
+                                        <div class="form-group">
+                                            <label for="bairro" class=" form-control-label">Bairro</label>
+                                            <input type="text" name="bairro" id="bairro" placeholder="Informe o bairro" class="form-control"
+                                            value="<?= $entidade['bairro'] ?>" />
+                                        </div>
 
-                                                <?php endif; ?>
-                                                
-                                                <td><?= $doacao['doacoes']; ?></td>
+                                        <span> <strong><em> Situação</em></strong></span>
+                                        <div class="form-group">
+                                            
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="situacao" id="situacao-1" value="1" 
+                                                <?php if($entidade['situacao'] != 0) { echo "checked"; } ?> />
+                                                <label class="form-check-label" for="situacao-1">ativo</label>
+                                            </div>
 
-                                                <td><a href="/admin-entidade-detalhes?codigo=<?= $doacao['codigo']; ?>" class="btn btn-link"> ver mais </a></td>
-                                            </tr>
-                                            <?php endforeach;?>
-                                        </tbody>
-                                    </table>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="situacao" id="situacao-0" value="0" 
+                                                <?php if($entidade['situacao'] != 1) { echo "checked"; } ?>>
+                                                <label class="form-check-label" for="situacao-0">não ativo</label>
+                                            </div>
+                                        
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="preco" class=" form-control-label">Valor Boleto R$:</label>
+                                            <input type="text" name="valor" id="preco" placeholder="Valor em R$" class="form-control" 
+                                            value="<?= $entidade['valorBoleto']; ?>" />
+                                            <small id="span-valor"></small>
+                                        </div>
+
+                                        <br>
+
+                                        <input type="hidden" name="codigo" value="<?= $entidade['codigoEntidade']; ?>" />
+
+                                        <div class="form-group text-right">
+                                            
+                                            <button type="submit" class="role admin">Salvar</button>
+                                            <button type="reset" class="role user">Limpar</button>
+
+                                        </div>
+                                    </form>
                                 </div>
-                                <!-- END DATA TABLE-->
                             </div>
                         </div>
+       
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="copyright">
@@ -245,6 +313,13 @@
 
     <!-- Jquery JS-->
     <script src="assets/admin-gui/vendor/jquery-3.2.1.min.js"></script>
+
+    <!-- Add Validate JS , como usar: http://www.linhadecodigo.com.br/artigo/3706/jquery-validate-validacao-de-formularios-html.aspx  -->
+    <script src="assets/js/jquery.validate.js"></script>
+
+    <!-- add Jquery mask plugin, site: https://igorescobar.github.io/jQuery-Mask-Plugin/ -->
+    <script src="assets/js/jquery.mask.js"></script>
+
     <!-- Bootstrap JS-->
     <script src="assets/admin-gui/vendor/bootstrap-4.1/popper.min.js"></script>
     <script src="assets/admin-gui/vendor/bootstrap-4.1/bootstrap.min.js"></script>
@@ -256,9 +331,9 @@
     <!-- Main JS-->
     <script src="assets/admin-gui/js/main.js"></script>
 
-    <script src="assets/js/button.novoBoleto.js"></script>
-    <script src="assets/js/button.novaEntidade.js"></script>
-
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/forms.js"></script>
+    <script src="assets/js/entidade_cadastro.js"></script>
 </body>
 
 </html>

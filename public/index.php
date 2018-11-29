@@ -42,7 +42,7 @@ $rotas = [
 
     // Interface gráfica do Adminitrador
 
-    "/admin-gui" => "controllers/admin_gui",
+    "/admin" => "controllers/admin",
 
     "/admin-entidades" => "controllers/admin_entidade",
 
@@ -52,7 +52,13 @@ $rotas = [
 
     "/admin-boleto-detalhes" => "controllers/admin_boleto_detalhes",
 
-    "/admin-entidade-detalhes" => "controllers/admin_entidade_detalhes"
+    "/admin-entidade-detalhes" => "controllers/admin_entidade_detalhes",
+
+    "/admin-entidade-editar" =>  "controllers/admin_entidade_edit",
+
+    "/admin-entidade-update" => "controllers/admin_entidade_update",
+    
+    "/admin-entidade-delete" => "controllers/admin_entidade_delete"
 ];
 
 try {

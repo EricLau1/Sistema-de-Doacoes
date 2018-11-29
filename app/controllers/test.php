@@ -4,12 +4,37 @@
 
 echo 'Area de testes <br><br>';
 
+
 //====== TESTADO COM SUCESSO =======//
- use app\models\Usuario;
+/*
+use app\classes\Validate;
 
- $u = new Usuario;
+$v = new Validate;
 
- echo $u->delete(22) . " linhas afetadas.";
+$table = [
+  "name" => "Entidade",
+  "field" => "nomeFantasia",
+  "value" => "CAPSA - Circulo dos Amigos dos Pobres do Pao de Santo Antonio"
+];
+
+$ignore = [
+  "key" => "codigoEntidade",
+  "value" => 7
+];
+
+$v->modificarParaUpdate($ignore);
+
+$v->unique( $table['name'] , $table['field'], $table['value']);
+
+echo toJson($v->getMetadata());
+*/
+
+//====== TESTADO COM SUCESSO =======//
+ //use app\models\Usuario;
+
+//$u = new Usuario;
+
+ //echo $u->delete(22) . " linhas afetadas.";
 
 //====== TESTADO COM SUCESSO =======//
 

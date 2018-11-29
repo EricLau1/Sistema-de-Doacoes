@@ -53,23 +53,23 @@ abstract class Model {
 
     }
 
-        // retorna varias linhas da tabela que sejam iguais aos parametros
-        public function gets($col, $val) {
+    // retorna varias linhas da tabela que sejam iguais aos parametros
+    public function gets($col, $val) {
 
-            // faz uma consulta que atenda a um valor específico de uma determinada coluna
-            $sql = "select * from {$this->table} where {$col} = :{$col}";
-    
-            $results = $this->connection->prepare($sql);
-    
-            $results->bindValue(":{$col}", $val); // passa o valor relacionado a coluna
-    
-            // executa a query
-            $results->execute();
-    
-            // retorna os resultados
-            return $results->fetchAll();
-    
-        }
+        // faz uma consulta que atenda a um valor específico de uma determinada coluna
+        $sql = "select * from {$this->table} where {$col} = :{$col}";
+
+        $results = $this->connection->prepare($sql);
+
+        $results->bindValue(":{$col}", $val); // passa o valor relacionado a coluna
+
+        // executa a query
+        $results->execute();
+
+        // retorna os resultados
+        return $results->fetchAll();
+
+    }
 
     public function create($atributos) {
 
@@ -79,6 +79,18 @@ abstract class Model {
         
         return $insert->execute($atributos);
         
+
+    }
+
+    public function update($atributos) {
+
+        $sql = QueryBuilder::update($this->table, $atributos);
+
+        $update = $this->connection->prepare($sql);
+
+        $update->execute($atributos);
+
+        return $update->rowCount();
 
     }
 

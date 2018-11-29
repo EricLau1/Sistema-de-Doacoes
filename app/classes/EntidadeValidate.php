@@ -13,7 +13,13 @@ class EntidadeValidate {
     private $messages = array();
     private $isValid = false;
 
+    private $primaryKey = null;
+
     public function __construct($inputs) {
+
+
+        // verificando se foi enviado um campo com o código da primary key
+        $this->existsPrimaryKey($inputs);
 
         $params = trimAll($inputs);
 
@@ -28,11 +34,26 @@ class EntidadeValidate {
         // instaciar classe para validar valores únicos
         $this->validate = new Validate;
 
-        // valores únicos: email, cnpj e nomeFantasia
+        if( $this->primaryKey != null ) {
 
-        $this->validate->unique('Entidade', 'email', $params['email']);
-        $this->validate->unique('Entidade', 'cnpj', $params['cnpj']);
-        $this->validate->unique('Entidade', 'nomeFantasia', $params['nome']);
+            // se existir uma primary key a classe irá executar como uma UPDTE
+            $this->validate->modificarParaUpdate( $this->primaryKey );
+
+            // valores únicos: email, cnpj e nomeFantasia
+            $this->validate->unique('Entidade', 'email', $params['email']);
+            $this->validate->unique('Entidade', 'cnpj', $params['cnpj']);
+            $this->validate->unique('Entidade', 'nomeFantasia', $params['nome']);
+
+        } else {
+
+            // Senão, executa como um Insert
+            
+            // valores únicos: email, cnpj e nomeFantasia
+            $this->validate->unique('Entidade', 'email', $params['email']);
+            $this->validate->unique('Entidade', 'cnpj', $params['cnpj']);
+            $this->validate->unique('Entidade', 'nomeFantasia', $params['nome']);
+            
+        }
 
         //echo toJson($this->validate->getMetadata());
 
@@ -59,10 +80,31 @@ class EntidadeValidate {
             $this->dados = $row;
 
             unset($params, $row);
+            
         } // end if
 
 
     } // end construtor
+
+    // verifica se nos input fields do formulário foi enviado um campo com o código
+    private function existsPrimaryKey($params) {
+
+        if(isArray($params)) {
+
+            // verifica se existe um parâmetro com codigo
+            if( isset($params['codigo']) ) {
+
+                $this->primaryKey = [
+                    "key"   => "codigoEntidade",
+                    "value" => $params['codigo']
+                ];
+
+            } // end if
+
+        } // end if
+
+    }
+
 
     private function validation($params) {
 
@@ -116,4 +158,9 @@ class EntidadeValidate {
 
     }
 
+    private function getPrimaryKey() {
+
+        return $this->primaryKey;
+
+    }
 }

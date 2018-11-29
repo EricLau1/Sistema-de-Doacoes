@@ -62,7 +62,17 @@ Para executar o projeto:
 
     *caso tenha efetuado o login*
     
-    - http://localhost:8888/admin-gui
+    - http://localhost:8888/admin
+
+    - http://localhost:8888/admin-entidades
+
+    - http://localhost:8888/admin-entidade-cadastro
+
+    - http://localhost:8888/admin-entidade-detalhes?codigo=1
+
+    - http://localhost:8888/admin-entidade-edit?codigo=1
+
+    - http://localhost:8888/admin-entidade-delete?codigo=1&confirm=true
 
     - http://localhost:8888/logout
 

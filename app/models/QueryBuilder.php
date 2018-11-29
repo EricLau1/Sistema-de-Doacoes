@@ -16,4 +16,21 @@ class QueryBuilder {
         return $sql;
     }
 
+    public static function update($table, $params) {
+
+        $sql = "update {$table} set ";
+        
+        // remove este campo apenas dentro da função update
+        unset($params['codigoEntidade']);
+
+        // mapeando as chaves do Array $params e transformando e um Array de Strings com os nomes dos campos da tabela
+        $atributos = array_map( function( $param ) { return "{$param}=:{$param}"; }, array_keys($params) );
+
+        $sql .= implode(",", $atributos);
+
+        $sql .= " where codigo{$table} = :codigo{$table}";
+
+        return $sql;
+    }
+
 }

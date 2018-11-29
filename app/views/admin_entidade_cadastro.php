@@ -56,7 +56,7 @@
                 <div class="container-fluid">
                     <ul class="navbar-mobile__list list-unstyled">
                         <li class="has-sub">
-                            <a class="js-arrow" href="/admin-gui">
+                            <a class="js-arrow" href="/admin">
                                 <i class="fas fa-tachometer-alt"></i>Painel
                             </a>
                         </li>
@@ -82,7 +82,7 @@
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
                         <li class="has-sub">
-                            <a class="js-arrow" href="/admin-gui">
+                            <a class="js-arrow" href="/admin">
                                 <i class="fas fa-tachometer-alt"></i>Painel
                             </a>
                         </li>
@@ -172,6 +172,15 @@
             <div class="main-content">
                 <div class="section__content section__content--p30">
                     <div class="container-fluid">
+
+                        <div class="row">
+                        
+                            <div class="col-lg-12 text-right">
+                                <a href="/admin-entidades" class="role user text-light"> Voltar </a>
+                            </div>
+                        </div>
+
+                        <br />
                         
                         <div class="row">
                             <div class="col-lg-12">

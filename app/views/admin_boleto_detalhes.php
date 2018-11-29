@@ -54,7 +54,7 @@
                 <div class="container-fluid">
                     <ul class="navbar-mobile__list list-unstyled">
                         <li class="has-sub">
-                            <a class="js-arrow" href="/admin-gui">
+                            <a class="js-arrow" href="/admin">
                                 <i class="fas fa-tachometer-alt"></i>Painel
                             </a>
                         </li>
@@ -80,7 +80,7 @@
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
                         <li class="has-sub active">
-                            <a class="js-arrow" href="/admin-gui">
+                            <a class="js-arrow" href="/admin">
                                 <i class="fas fa-tachometer-alt"></i>Painel
                             </a>
                         </li>
@@ -174,7 +174,7 @@
 
                            <div class="col-lg-12 text-right">
                            
-                            <a href="/admin-gui" class="role user text-light"> Voltar </a>  
+                            <a href="/admin" class="role user text-light"> Voltar </a>  
 
                            </div>
                             
@@ -263,15 +263,18 @@
                                                 <tr>
                                                     <td class="text-danger">Notificar via email</td>
                                                     <td>
-                                                        <button class="role admin"> Email </button>
+                                                        <button class="role admin"> <i class="fas fa-envelope"></i> Email </button>
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td class="text-dark">Dar baixa</td>
                                                     <td>
-                                                        <button class="role member"  > Baixa </button>
+                                                        <button class="role member" data-toggle="modal" data-target="#staticModal"> 
+                                                            <i class="fas fa-check"></i> Baixa 
+                                                        </button>
                                                     </td>
                                                 </tr>
+
                                             </tbody>
                                         </table>
                                     </div>
@@ -308,6 +311,37 @@
         </div>
 
     </div>
+
+            <!-- modal static -->
+    <div class="modal fade" id="staticModal" tabindex="-1" role="dialog" aria-labelledby="staticModalLabel" aria-hidden="true"
+        data-backdrop="static">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticModalLabel">Remover boleto</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="alert" role="alert">
+                        <h4 class="alert-heading">Deseja remover esse boleto do sistema?</h4>
+                        <hr>
+                        <p>
+                            Clique em <strong> <em> confirmar </em> </strong> para remover.
+                        </p>
+                    
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="role user" data-dismiss="modal">Cancelar</button>
+                    <button type="button" class="role admin">Confirmar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end modal static -->
 
     <!-- Jquery JS-->
     <script src="assets/admin-gui/vendor/jquery-3.2.1.min.js"></script>

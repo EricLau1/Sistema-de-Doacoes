@@ -54,7 +54,7 @@
                 <div class="container-fluid">
                     <ul class="navbar-mobile__list list-unstyled">
                         <li class="has-sub">
-                            <a class="js-arrow" href="/admin-gui">
+                            <a class="js-arrow" href="/admin">
                                 <i class="fas fa-tachometer-alt"></i>Painel
                             </a>
                         </li>
@@ -80,7 +80,7 @@
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
                         <li class="has-sub active">
-                            <a class="js-arrow" href="/admin-gui">
+                            <a class="js-arrow" href="/admin">
                                 <i class="fas fa-tachometer-alt"></i>Painel
                             </a>
                         </li>
@@ -173,16 +173,23 @@
                         <div class="row">
 
                            <div class="col-md-12 text-right">
-                           
+                                <button class="role member" id="novo-boleto" > Fazer doação </button>
                                 <a href="/admin-entidades" class="role user text-light"> Voltar </a>                                
-                               
-                               <button class="role member" id="novo-boleto" > Fazer doação </button>
-
                            </div>
                             
                         </div>
 
                         <br>
+
+                        <div class="row">
+
+                            <div class="col-lg-12">
+                            
+                                <?= $session->message(); ?>
+                                
+                            </div>
+                        
+                        </div>
 
                         <div class="row">
       
@@ -270,14 +277,24 @@
                                                 <tr>
                                                     <td class="text-danger">Notificar via email</td>
                                                     <td>
-                                                        <button class="role admin"> Email </button>
+                                                        <button class="role admin"> <i class="fas fa-envelope"></i> Email </button>
                                                     </td>
                                                 </tr>
 
                                                 <tr>
                                                     <td class="text-primary">Editar informações</td>
                                                     <td>
-                                                        <button class="role user"> Editar </button>
+                                                        <a href="/admin-entidade-editar?codigo=<?= $entidade['codigoEntidade']; ?>" class="role user text-white" id="entidade-editar" > 
+                                                            <i class="fas fa-edit"></i> Editar 
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td> <strong>Excluir</strong> </td>
+                                                    <td>
+                                                        <button type="button" class="btn btn-outline-dark btn-sm" data-toggle="modal" data-target="#staticModal">
+                                                            <i class="fas fa-backspace"></i> Deletar
+                                                        </button>
                                                     </td>
                                                 </tr>
                                             </tbody>
@@ -316,6 +333,39 @@
         </div>
 
     </div>
+
+
+        <!-- modal static -->
+    <div class="modal fade" id="staticModal" tabindex="-1" role="dialog" aria-labelledby="staticModalLabel" aria-hidden="true"
+        data-backdrop="static">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticModalLabel">Excluir Entidade</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="alert" role="alert">
+                        <h4 class="alert-heading">Deseja excluir os dados permanentemente?</h4>
+                        <hr>
+                        <p>
+                            Clique em <strong> <em> confirmar </em> </strong> para excluir.
+                        </p>
+                    
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="role user" data-dismiss="modal">Cancelar</button>
+                    <a href="/admin-entidade-delete?codigo=<?= $entidade['codigoEntidade'] ?>&confirm=true" 
+                        class="role admin text-white">Confirmar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end modal static -->
 
     <!-- Jquery JS-->
     <script src="assets/admin-gui/vendor/jquery-3.2.1.min.js"></script>
