@@ -60,7 +60,12 @@ $rotas = [
 
     "/admin-entidade-update" => "controllers/admin_entidade_update",
     
-    "/admin-entidade-delete" => "controllers/admin_entidade_delete"
+    "/admin-entidade-delete" => "controllers/admin_entidade_delete",
+
+    "/admin-boleto-pago" => "controllers/admin_boleto_pago",
+
+    "/admin-boleto-delete" => "controllers/admin_boleto_delete"
+    
 ];
 
 try {

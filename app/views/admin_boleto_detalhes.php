@@ -21,7 +21,7 @@
 
     <!-- Bootstrap CSS-->
     <link href="assets/admin-gui/vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
-
+   
     <!-- Vendor CSS-->
     <link href="assets/admin-gui/vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
     <link href="assets/admin-gui/vendor/wow/animate.css" rel="stylesheet" media="all">
@@ -174,7 +174,7 @@
 
                            <div class="col-lg-12 text-right">
                            
-                            <a href="/admin" class="role user text-light"> Voltar </a>  
+                                <a href="/admin" class="role user text-light"> Voltar </a>  
 
                            </div>
                             
@@ -183,11 +183,34 @@
                         <br />
 
                         <div class="row">
+                        
+                            <div class="col-lg-12">
+                            
+                                <?= $session->message(); ?>
+
+                            </div>
+                        </div>
+
+                        <div class="row">
       
                             <div class="col-lg-12">
                                 <!-- TOP CAMPAIGN-->
                                 <div class="top-campaign">
                                     <h3 class="title-3 m-b-30">Boleto # <?= $boleto['codigoBoleto'] ?></h3>
+                                    
+                                    <?php if( $boleto['situacao'] == 0): ?>
+                                        <a href="#" class="role member text-white" data-toggle="modal" data-target="#modalBaixa" > 
+                                            <i class="fas fa-check"></i> Dar Baixa 
+                                        </a>
+                                    <?php else: ?>
+                                        <button type="button" class="role member" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Este boleto ja está pago.">
+                                            <i class="fas fa-check-double"></i> baixa
+                                        </button>
+                                    <?php endif; ?>
+
+                                    <button class="role admin"> <i class="fas fa-envelope"></i> Email </button>
+                                    <hr>
+                                    
                                     <div class="table-responsive">
                                         <table class="table table-top-campaign">
                                             <tbody>
@@ -212,17 +235,31 @@
                                                     <td><em>Nº do documento</em></td>
                                                     <td class="text-dark"><?= $boleto['numero']; ?></td>
                                                 </tr>
+                                                
                                                 <tr>
                                                     <td><em>Data do Pagamento</em></td>
+                                                    <?php if($boleto['dataPagamento'] != null):?>
                                                     <td class="text-dark"><?= (new DateTime($boleto['dataPagamento']))->format("d M Y"); ?></td>
+                                                    <?php else: ?>
+                                                    <td class="text-danger"> <strong><em><?= $boleto['dataPagamentoString'] ?></em> </strong></td>
+                                                    <?php endif; ?>
                                                 </tr>
+
                                                 <tr>
                                                     <td class="text-dark"><em><strong>Valor</strong></em></td>
                                                     <td class="text-success"> <strong> <?= number_format($boleto['valor'], 2, ",", "."); ?></strong> R$ </td>
                                                 </tr>
                                                 <tr>
                                                     <td><em><strong>Pagador</strong></em></td>
-                                                    <td class="text-dark"><?= $boleto['nome']; ?></td>
+                                                    <td class="text-dark"><strong> <?= $boleto['nome']; ?> </strong></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>Situação</strong></td>
+                                                    <?php if($boleto['situacao'] != 0): ?>
+                                                        <td class="text-success"> <strong><em> pago</em> </strong> </td>
+                                                    <?php else: ?>
+                                                        <td class="text-danger"> <strong><em>não pago </em> </strong></td>
+                                                    <?php endif;?>
                                                 </tr>
 
                                                 <?php if(!empty($boleto['cnpj'])): ?>
@@ -261,17 +298,11 @@
                                                 </tr>
 
                                                 <tr>
-                                                    <td class="text-danger">Notificar via email</td>
+                                                    <td class="text-dark">Excluir boleto</td>
                                                     <td>
-                                                        <button class="role admin"> <i class="fas fa-envelope"></i> Email </button>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-dark">Dar baixa</td>
-                                                    <td>
-                                                        <button class="role member" data-toggle="modal" data-target="#staticModal"> 
-                                                            <i class="fas fa-check"></i> Baixa 
-                                                        </button>
+                                                        <a href="#" class="btn btn-outline-dark btn-sm" data-toggle="modal" data-target="#modalExcluir">                                                                                 
+                                                            <i class="fas fa-times-circle"></i> Excluir
+                                                        </a>
                                                     </td>
                                                 </tr>
 
@@ -312,8 +343,10 @@
 
     </div>
 
-            <!-- modal static -->
-    <div class="modal fade" id="staticModal" tabindex="-1" role="dialog" aria-labelledby="staticModalLabel" aria-hidden="true"
+    
+
+    <!-- modal Excluir -->
+    <div class="modal fade" id="modalExcluir" tabindex="-1" role="dialog" aria-labelledby="staticModalLabel" aria-hidden="true"
         data-backdrop="static">
         <div class="modal-dialog modal-sm" role="document">
             <div class="modal-content">
@@ -336,7 +369,42 @@
 
                 <div class="modal-footer">
                     <button type="button" class="role user" data-dismiss="modal">Cancelar</button>
-                    <button type="button" class="role admin">Confirmar</button>
+                    <a href="/admin-boleto-delete?codigo=<?= $boleto['codigoBoleto']; ?>&confirm=true" class="role admin text-white">
+                        Confirmar
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end modal Excluir -->
+
+    <!-- modal static -->
+    <div class="modal fade" id="modalBaixa" tabindex="-1" role="dialog" aria-labelledby="staticModalLabel" aria-hidden="true"
+        data-backdrop="static">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticModalLabel">Confirmação de pagamento</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="alert" role="alert">
+                        <h4 class="alert-heading">Verifique se o boleto foi <strong> pago</strong> antes do vencimento.</h4>
+                        <hr>
+                        <p>
+                            Clique em <strong> <em> confirmar </em> </strong> para dar baixa no boleto.
+                        </p>
+                    
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="role user" data-dismiss="modal">Cancelar</button>
+                    <a href="/admin-boleto-pago?codigo=<?= $boleto['codigoBoleto'] ?>&confirm=true"  class="role admin text-white">
+                        Confirmar
+                    </a>
                 </div>
             </div>
         </div>
@@ -358,6 +426,13 @@
     <!-- Main JS-->
     <script src="assets/admin-gui/js/main.js"></script>
 
+    <script>
+    
+        $(function () {
+            $('[data-toggle="popover"]').popover()
+        });
+
+    </script>
 </body>
 
 </html>

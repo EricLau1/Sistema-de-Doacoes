@@ -43,7 +43,7 @@ class BoletoValidate {
             "dataEmissao"          => $hoje,
             "dataEmissaoString"    => date("d/M/Y"),
             "dataPagamento"        => null,
-            "dataPagamentoString"  => "aguardando",
+            "dataPagamentoString"  => 'aguardando',
             "dataVencimento"       => $vencimento, // apenas pra teste
             "dataVencimentoString" => date('d/M/Y', strtotime(' +2 day') ), // apenas pra teste
             "email"                => $params['email'],
@@ -53,7 +53,7 @@ class BoletoValidate {
             "nossoNumero"          => null,                 // valor utilizado apenas para teste
             "numero"               => rand(10000, 99999),  // valor utilizado apenas para teste
             "situacao"             => 0,
-            "situacaoString"        => "aguardando",
+            "situacaoString"        => "não-pago",
             "telefone"             => $params['telefone'],
             "valor"                => $params['valor'],
             "codigoEntidade"       => $params['entidade']

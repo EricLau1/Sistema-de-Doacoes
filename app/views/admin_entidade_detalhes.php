@@ -197,6 +197,15 @@
                                 <!-- TOP CAMPAIGN-->
                                 <div class="top-campaign">
                                     <h3 class="title-3 m-b-30"><?= $entidade['nomeFantasia'] ?></h3>
+                                    
+                                    <a href="/admin-entidade-editar?codigo=<?= $entidade['codigoEntidade']; ?>" class="role user text-white" id="entidade-editar" > 
+                                        <i class="fas fa-edit"></i> Editar 
+                                    </a>
+
+                                    <button class="role admin"> <i class="fas fa-envelope"></i> Email </button>
+
+                                    <hr />
+
                                     <div class="table-responsive">
                                         <table class="table table-top-campaign">
                                             <tbody>
@@ -273,21 +282,6 @@
                                                 <tr>
                                                     <td class="text-dark"> <em><strong>Valor do Boleto</strong></em></td>
                                                     <td class="text-success">  <strong><?= number_format($entidade['valorBoleto'], 2, ",", "."); ?> </strong> R$  </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-danger">Notificar via email</td>
-                                                    <td>
-                                                        <button class="role admin"> <i class="fas fa-envelope"></i> Email </button>
-                                                    </td>
-                                                </tr>
-
-                                                <tr>
-                                                    <td class="text-primary">Editar informações</td>
-                                                    <td>
-                                                        <a href="/admin-entidade-editar?codigo=<?= $entidade['codigoEntidade']; ?>" class="role user text-white" id="entidade-editar" > 
-                                                            <i class="fas fa-edit"></i> Editar 
-                                                        </a>
-                                                    </td>
                                                 </tr>
                                                 <tr>
                                                     <td> <strong>Excluir</strong> </td>

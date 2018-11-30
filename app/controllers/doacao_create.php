@@ -37,6 +37,7 @@ if(empty($_POST)) {
 use app\classes\BoletoValidate;
 use app\models\Boleto;
 use app\models\Entidade;
+use app\classes\Moeda;
 
 $validate = new BoletoValidate($_POST);
 
@@ -60,7 +61,7 @@ $pagador = [
     'cep'    => $dados['cep'],
     'cidade' => $dados['cidade'],
     'estado' => $dados['estado'],
-    "valor"  => (number_format($dados['valor'], 2)),
+    "valor"  => $dados['valor'],
     "vencimento" => $dados['dataVencimento']
 ];
 
@@ -95,7 +96,10 @@ try {
 
         redirect("/boleto-ok"); */
 
+        unset($_POST);
+
         require $view->renderizar("boleto");
+        
         return;
 
     }

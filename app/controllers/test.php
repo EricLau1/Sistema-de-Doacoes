@@ -7,6 +7,7 @@ echo 'Area de testes <br><br>';
 
 //====== BOLETO TESTADO COM SUCESSO =======//
 
+/*
 use OpenBoleto\Banco\BancoDoBrasil;
 use OpenBoleto\Agente;
  
@@ -27,7 +28,7 @@ $boleto = new BancoDoBrasil(array(
 ));
  
 echo $boleto->getOutput();
-
+*/
 
 
 //====== TESTADO COM SUCESSO =======//

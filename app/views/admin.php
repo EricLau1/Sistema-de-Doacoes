@@ -172,6 +172,12 @@
                     <div class="container-fluid">
                         <div class="row">
                             
+                            <div class="col-lg-12">
+                            
+                                <?= $session->message(); ?>
+                                
+                            </div>
+
                         </div>
                         <div class="row">
       
