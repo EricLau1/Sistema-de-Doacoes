@@ -51,7 +51,7 @@
         },
         cep : {
             required: true,
-            minlength: 9,
+            minlength: 10,
             maxlength: 10
         },
         estado :{
@@ -111,7 +111,7 @@
         },
         cep : {
             required: flash("Este campo é obrigatório", ALERT_MESSAGE),
-            minlength: flash("Mínimo 9 caracteres", ALERT_MESSAGE),
+            minlength: flash("Mínimo 10 caracteres", ALERT_MESSAGE),
             maxlength: flash("Máximo 10 caracteres", ALERT_MESSAGE)
         },
         estado :{

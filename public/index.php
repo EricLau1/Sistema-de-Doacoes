@@ -39,6 +39,8 @@ $rotas = [
 
     "/boleto" => "controllers/boleto",
 
+    "/boleto-impressao" => "controllers/boleto_impressao",
+
     // página para testes
     "/test" => "controllers/test",
 
@@ -81,10 +83,10 @@ try {
 
     // Caso não encontra a página digitada na URL
 
-    echo $e->getMessage();
+    //echo $e->getMessage();
 
     // envia pra Home em caso de uma rota desconhecida.
-    //require Router::load("/home", $rotas);
+    require Router::load("/home", $rotas);
 
     // ir para área de testes
     //require Router::load("/area-de-teste", $rotas);

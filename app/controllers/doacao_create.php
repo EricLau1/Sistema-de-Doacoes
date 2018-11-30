@@ -82,19 +82,29 @@ $beneficiario = [
 
 use app\classes\GerarBoleto;
 
-$gerarBoleto = new GerarBoleto($pagador, $beneficiario);
+// objeto que utiliza a biblioteca OpenBOleto para gerar boletos
+$documento = new GerarBoleto($pagador, $beneficiario);
+
+// criptografa um token para utilizar nesta session
+$token = base64_encode("{$pagador['nome']}{$beneficiario['nome']}");
 
 try {
 
     $boleto = new Boleto;
     
     if($boleto->create($dados)) {
+    
+        $session->set('boleto', [ 
+                "status" => "OK",
+                "token" => $token, // guarda o token
+                "doc" => &$documento // guarda uma referencia do objeto que irá gerar o boleto
+            ]
+        );
 
-        /*
-        
-        $session->set('boleto', ["status" => "OK"]);
+        //redirect("/boleto-ok"); 
 
-        redirect("/boleto-ok"); */
+        // muda o ID da sessão
+        session_regenerate_id();
 
         unset($_POST);
 
@@ -112,5 +122,5 @@ try {
 
 
 
-echo "Ooops! Ocorreu um erro ao salvar. =(";
+//echo "Ooops! Ocorreu um erro ao salvar. =(";
 
