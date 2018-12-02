@@ -1,5 +1,14 @@
 <?php
 
+// ARQUIVO  PARA DELETAR UMA ENTIDADE PELO ADMINISTRADOR
+
+// se não houver usuário autenticado, envia para o login
+$session->restrict("autenticado", "/login");
+
+// necessário ter o Perfil 2 para acessar está página
+adminRequired();
+
+
 use app\models\Entidade;
 
 if(!isEmpty($_GET)) {

@@ -14,6 +14,8 @@
     
     <link rel="stylesheet" href="assets/css/user_create.css" />
 
+        <link rel="stylesheet" href="assets/css/footer.css">
+
 
   </head>
   <body>
@@ -39,6 +41,7 @@
                 </ul>
                 <span class="navbar-text">
                     <a href="/login" class="btn btn-outline-warning">Login</a>
+                    <a href="/doacao" class="btn btn-danger text-white">Doar</a>
                 </span>
             </div>
         </nav> <!-- end nav -->
@@ -129,19 +132,30 @@
 
                     </div> <!-- end form-row -->
 
-                    <hr />
-                    <div class="form-group">
+                    <br />
+                    <div class="form-row">
 
-                        <button type="submit" class="btn btn-outline-success">Salvar</button>
-                        <button type="reset" class="btn btn-outline-info">Reset</button>
+                        <div class="col-lg-2">
+                            <button type="submit" class="btn btn-block btn-outline-success">Salvar</button>
+                        </div>
+                        <div class="col-lg-2">                     
+                            <button type="reset" class="btn btn-block btn-outline-info">Reset</button>
+                        </div>
                     
-                    </div>
+                    </div> <!-- end form-row -->
 
                 </form> <!-- end form -->
 
             </div> <!-- end col-md-12 -->
         
         </div> <!-- end row -->
+
+            <hr>
+        <footer class="footer text-center">
+
+        Todos os direitos reservados - 2018
+
+        </footer>
 
 
     </div> <!-- end container -->

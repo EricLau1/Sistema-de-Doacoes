@@ -1,12 +1,17 @@
 <?php
 
+// ARQUIVO QUE VALIDA AS INFORMAÇÕES DO FORMULÁRIO DE EDIÇÃO DE ENTIDADE E ATUALIZA NO BANCO DE DADOS
+ 
+// se não houver usuário autenticado, envia para o login
+$session->restrict("autenticado", "/login");
+
 //echo toJson($_POST);
 //return;
 use app\classes\EntidadeValidate;
 
 $validate = new EntidadeValidate($_POST);
 
-/* 
+/*
 echo toJson([
     "metadata" => $validate->getValidate()->getMetadata(),
     "errors"   => $validate->getValidate()->getErrors(),
@@ -38,21 +43,40 @@ if($dados) {
         switch($rowCount) {
             case 0 : {
 
-                $message = "nenhuma informação foi modifcada";
+                $message = "nenhuma informação foi modificada";
 
                 $session->set('message', flash2( $message, "info") );
         
-                redirect("/admin-entidade-editar?codigo={$_POST['codigo']}");
+                if( $session->gets( ['autenticado', 'prefil'] ) == 2 ) {
+
+                    redirect("/admin-entidade-editar?codigo={$_POST['codigo']}");
+
+            
+                } else {
+            
+                    redirect("/entidade");
+            
+                }
                 return;
 
             }
             default : {
 
-                $message = " <strong> <em>{$rowCount} linha </em></strong> foi modificada com sucesso!";
+                $message = "As informações foram atualizadas com sucesso!";
 
-                $session->set('message', flash2( $message, "success") );
+                $session->set('message', flash2( $message, "primary") );
         
-                redirect("/admin-entidade-editar?codigo={$_POST['codigo']}");
+                if( $session->gets( ['autenticado', 'prefil'] ) == 2 ) {
+
+                    redirect("/admin-entidade-editar?codigo={$_POST['codigo']}");
+
+            
+                } else {
+            
+                    redirect("/entidade");
+            
+                }
+
                 return;
 
             }
@@ -67,7 +91,16 @@ if($dados) {
 
         $session->set('message', flash2( $message, "danger") );
 
-        redirect("/admin-entidade-editar?codigo={$_POST['codigo']}");
+        if( $session->gets( ['autenticado', 'prefil'] ) == 2 ) {
+
+            redirect("/admin-entidade-editar?codigo={$_POST['codigo']}");
+
+    
+        } else {
+    
+            redirect("/entidade-editar");
+    
+        }
         return;
 
 
@@ -79,8 +112,16 @@ foreach($validate->getMessages() as $message) {
 
     $session->set('message', $message);
 
-    redirect("/admin-entidade-editar?codigo={$_POST['codigo']}");
-    break;
+    if( $session->gets( ['autenticado', 'prefil'] ) == 2 ) {
+
+        redirect("/admin-entidade-editar?codigo={$_POST['codigo']}");
+        break;
+
+    } else {
+
+        redirect("/entidade-editar");
+
+    }
 
 }
 

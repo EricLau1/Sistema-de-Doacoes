@@ -1,5 +1,13 @@
 <?php
 
+// ARQUIVO PARA DELETAR UM BOLETO
+
+// se não houver usuário autenticado, envia para o login
+$session->restrict("autenticado", "/login");
+
+// necessário ter o Perfil 2 para acessar está página
+adminRequired();
+
 use app\models\Boleto;
 use app\filtros\Number;
 use app\filtros\Text;

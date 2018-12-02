@@ -1,5 +1,7 @@
 <?php
 
+// ARQUIVO  QUE VALIDA AS INFORMAÇÕES VINDAS DO FORMULÁRIO DE DOAÇÃO E SALVA NO BANCO DE DADOS
+
 if($_POST['entidade'] == 0) {
 
     $session->set('message', flash("Selecione uma entidade para doar!", "danger") );

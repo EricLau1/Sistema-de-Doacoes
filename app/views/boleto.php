@@ -1,9 +1,3 @@
-<?php
-
- // $gerarBoleto->gerar();
-
-?>
-
 <!doctype html>
 <html lang="pt-br">
   <head>
@@ -14,8 +8,12 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    
     <title>Boleto pronto para impressão</title>
+
+    <link rel="stylesheet" href="assets/css/login.css" />
+
 
   </head>
   <body>
@@ -55,15 +53,18 @@
                     <p class="lead">Você é uma pessoa especial <i class="fas fa-smile-beam"></i></p>
                     <hr class="my-4">
                     <p>Thansks!!!</p>
-                    <button type="button" class="btn btn-outline-success btn-lg" id="btn-impressao" role="button">Clique para imprimir o Boleto <i class="fas fa-check"></i></button>
+                    
+                    <button type="button" class="btn btn-outline-primary btn-lg" id="btn-impressao" role="button">Clique para imprimir o Boleto <i class="fas fa-check"></i></button>
+                    
                 </div>
 
             </div>
         
         </div>
 
-
-
+        <input type="hidden" name="token" id="token" value="<?= $token; ?>" />
+        <!-- token para imprimir -->
+       
     </div> <!-- end container -->
 
     <!-- Optional JavaScript -->
@@ -71,29 +72,8 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-  
-    <script>
-    
-            window.onload = function() {
-            
-                var btn_impressao = document.querySelector("#btn-impressao");
 
-                console.log(btn_impressao);
-
-                btn_impressao.onclick = function () {
-
-                    window.open("/boleto-impressao?token=<?=$token;?>", "_blank");
-                    
-                    window.location.href = "/home";
-
-                }
-
-            }
-
-            //
-
-    
-    </script>
+    <script src="assets/js/boleto.js"></script>
   
   </body>
 </html>

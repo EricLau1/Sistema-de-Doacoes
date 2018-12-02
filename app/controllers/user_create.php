@@ -1,5 +1,7 @@
 <?php
 
+// ARQUIVO PARA VALIDAR AS INFORMAÇÕES DO FORMULÁRIO DE CADASTRO DE USUÁRIO E SALVAR NO BANCO DE DADOS
+
 use app\classes\UsuarioValidate;
 use app\models\Usuario;
 

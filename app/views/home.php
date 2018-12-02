@@ -10,6 +10,9 @@
 
     <title>Sistema de Doações | Página inicial</title>
 
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/footer.css">
+
   </head>
   <body>
 
@@ -38,14 +41,93 @@
                 </span>
             </div>
         </nav> <!-- end nav -->
-    
+
         <div class="row">
 
-            <div class="col-md-12">
-                <a href="/doacao" class="btn btn-success">Fazer doação</a>
+            <div class="col-lg-12">
+                
+                <div class="jumbotron bg-white text-center">
+                    <h1 class="display-4">Doe para quem precisa!</h1>
+                    <p class="lead"> Site para doações <i class="fas fa-smile-beam"></i></p>
+                    <hr class="my-4">
+                    <p>Faça parte, crie um conta e cadastre sua entidade</p>
+                    
+                    <a href="/doacao" class="btn btn-success">Fazer doação</a>                    
+                </div>
+
             </div>
-        
+
         </div>
+
+        <div class="row">
+
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    
+                <div class="box-part text-center">
+                    
+                    <i class="fab fa-facebook-square fa-3x" aria-hidden="true"></i>
+                    
+                    <div class="title">
+                        <h4>Facebook</h4>
+                    </div>
+                    
+                    <div class="text">
+                        <span>Lorem ipsum dolor sit amet, id quo eruditi eloquentiam. Assum decore te sed. Elitr scripta ocurreret qui ad.</span>
+                    </div>
+                    
+                    <a href="https://pt-br.facebook.com/" target="_blank" class="btn btn-dark"> Curta <i class="fas fa-thumbs-up"></i></a>
+                    
+                </div>
+            </div>	
+
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+          
+                <div class="box-part text-center">
+                    
+                    <i class="fab fa-twitter fa-3x text-info"></i>
+                
+                    <div class="title">
+                        <h4>Twitter</h4>
+                    </div>
+                    
+                    <div class="text">
+                        <span>Lorem ipsum dolor sit amet, id quo eruditi eloquentiam. Assum decore te sed. Elitr scripta ocurreret qui ad.</span>
+                    </div>
+                    
+                    <a href="https://twitter.com/" class="btn btn-info" target="_blank" >Siga <i class="fas fa-star"></i></a>
+                    
+                </div>
+            </div>	 
+      
+         
+
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+               
+               <div class="box-part text-center">
+                   
+                    <i class="fab fa-instagram fa-3x text-danger"></i>
+                   
+                   <div class="title">
+                       <h4>Instagram</h4>
+                   </div>
+                   
+                   <div class="text">
+                       <span>Lorem ipsum dolor sit amet, id quo eruditi eloquentiam. Assum decore te sed. Elitr scripta ocurreret qui ad.</span>
+                   </div>
+                   
+                   <a href="https://www.instagram.com/?hl=pt-br" target="_blank" class="btn btn-danger">Compartilhe <i class="fas fa-share-square"></i> </a>
+                   
+                </div>
+            </div>	 
+           
+
+        </div> <!-- end row -->
+    
+        <footer class="footer text-center">
+        
+            Todos os direitos reservados - 2018
+        
+        </footer>
     </div> <!-- end container -->
 
     <!-- Optional JavaScript -->

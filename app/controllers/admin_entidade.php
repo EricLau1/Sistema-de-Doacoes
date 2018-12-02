@@ -1,7 +1,12 @@
 <?php
 
+// ARQUIVO  QUE CHAMA A TELA DE ENTIDADES
+
 // se não houver usuário autenticado, envia para o login
 $session->restrict("autenticado", "/login");
+
+// necessário ter o Perfil 2 para acessar está página
+adminRequired();
 
 use app\models\Usuario;
 

@@ -1,5 +1,7 @@
 <?php
 
+// ARQUIVO QUE RENDERIZA A TELA PARA O FORMULÁRIO DE CADASTRO DE DOAÇÃO
+
 use app\models\Entidade;
 
 $entidade = new Entidade;

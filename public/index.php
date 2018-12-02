@@ -41,14 +41,18 @@ $rotas = [
 
     "/boleto-impressao" => "controllers/boleto_impressao",
 
-    // página para testes
-    "/test" => "controllers/test",
+    // Interface de manutencão da Entidade
+    "/entidade" => "controllers/user_entidade",
 
-    // Interface gráfica do Adminitrador
+    "/entidade-editar" => "controllers/user_entidade_edit",
+    
+    "/entidade-create" => "controllers/user_entidade_create",
+  
+    // Interface gráfica do Super Administrador
 
-    "/admin" => "controllers/admin",
+    "/admin" => "controllers/admin", "/login",
 
-    "/admin-entidades" => "controllers/admin_entidade",
+    "/admin-entidades" => "controllers/admin_entidade", "/login",
 
     "/admin-entidade-cadastro" => "controllers/admin_entidade_cadastro",
 
@@ -66,7 +70,10 @@ $rotas = [
 
     "/admin-boleto-pago" => "controllers/admin_boleto_pago",
 
-    "/admin-boleto-delete" => "controllers/admin_boleto_delete"
+    "/admin-boleto-delete" => "controllers/admin_boleto_delete",
+
+      // página para testes
+      "/test" => "controllers/test"
     
 ];
 

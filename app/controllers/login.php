@@ -1,7 +1,8 @@
 <?php
 
-// se o usuário ja foi autenticado, não precisa realizar um login.
-$session->auth("/admin");
+// ARQUIVO  QUE RENDERIZA A TELA DE LOGIN
+
+acessar_perfil();
 
 require $view->renderizar("login");
 

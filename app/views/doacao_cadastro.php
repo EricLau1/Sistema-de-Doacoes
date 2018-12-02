@@ -16,6 +16,7 @@
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 
+    <link rel="stylesheet" href="assets/css/footer.css">
 
   </head>
   <body>
@@ -238,11 +239,15 @@
 
                     </div> <!-- end row -->
 
-                    <hr />
-                    <div class="form-group">
+                    <br />
+                    <div class="form-row">
 
-                        <button type="submit" class="btn btn-success">Doar <i class="fas fa-heart"></i></button>
-                        <button type="reset" class="btn btn-outline-info">Reset</button>
+                        <div class="col-lg-2">
+                            <button type="submit" class="btn btn-block btn-success">Doar <i class="fas fa-heart"></i></button>
+                        </div>
+                        <div class="col-lg-2">                     
+                           <button type="reset" class="btn btn-block btn-outline-info">Reset</button>
+                        </div>
                     
                     </div>
 
@@ -251,6 +256,13 @@
             </div> <!-- end col-md-12 -->
         
         </div> <!-- end row -->
+
+        <hr>
+        <footer class="footer text-center">
+
+            Todos os direitos reservados - 2018
+
+        </footer>
 
 
     </div> <!-- end container -->

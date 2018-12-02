@@ -1,3 +1,9 @@
+<?php
+    // ARQUIVO PARA IMPRIMIR O BOLETO
+    $session->restrict('boleto', '/home');
+    
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -5,29 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>BOLETO</title>
-    <script >
-    
-        window.onload = function () {
-
-            console.log('pagina carregada.');
-
-            var btn_imprimir = document.querySelector("#btn-imprimir");
-            
-            console.log(btn_imprimir);
-
-            btn_imprimir.onclick = function () {
-
-                console.log('vc ciclou');
-
-                btn_imprimir.style.display = 'none';
-
-                window.print();
-                window.close();
-            }
-
-        }
-
-    </script>
+    <script src="assets/js/boleto_impressao.js"></script>
 </head>
 <body>
     
@@ -36,8 +20,6 @@
     <?php
 
         use app\classes\GerarBoleto;
-
-        $session->restrict('boleto', '/home');
 
         if($_SESSION['boleto']['status'] == 'OK') {
 

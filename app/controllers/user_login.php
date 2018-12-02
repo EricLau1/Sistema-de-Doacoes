@@ -1,5 +1,8 @@
 <?php
 
+
+// ARQUIVO QUE VALIDA AS INFORMAÇÕES VINDAS DO FORMULÁRIO DE LOGIN
+
 use app\filtros\Filter;
 
 if(empty($_POST)) {
@@ -25,12 +28,22 @@ $user = $login->signin();
 // se o login estiver realizado com sucesso irpa retornar o usuário cadastrado no banco
 if($user) {
 
-    $session->set("autenticado", [ "status" => true, "codigo" => $user['codigoUsuario'] ] );
+    
+    $perfil = $user['perfil'];
+
+    $session->set("autenticado", [ 
+        "status" => true, 
+        "codigo" => $user['codigoUsuario'],
+        "perfil" => $perfil
+        ]
+    );
 
     session_regenerate_id();
 
-    redirect("/admin");
-    
+    //dd($perfil);
+
+    acessar_perfil();
+
 }
 
 // caso ocorra algum erro no login

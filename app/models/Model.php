@@ -85,7 +85,7 @@ abstract class Model {
     public function update($atributos) {
 
         $sql = QueryBuilder::update($this->table, $atributos);
-
+        
         $update = $this->connection->prepare($sql);
 
         $update->execute($atributos);
